@@ -18,6 +18,7 @@ async function createWidget() {
 }
 
 async function fetchMetar(airport = "RCFN") {
+  if (airport == "null") airport = "RCFN";
   let u = metarUrl.replace("%airport", airport);
   const data = await new Request(u).loadJSON();
   if (data) {
